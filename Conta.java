@@ -5,8 +5,8 @@ public class Conta {
 		this.saldo = saldo;
 	}
 	
-	//Avisa ao desenvolvedor que o método debita pode lançar uma 
-	//exceção  e que deve ser tratada ao utilizar a classe Conta
+	//Avisa ao desenvolvedor que o metodo debita pode lancar uma 
+	//excecao  e que deve ser tratada ao utilizar a classe Conta
 	public void debita(double valor) throws NewException {
 		if (valor > this.saldo) {
 			throw new NewException("Saldo insuficiente.");
@@ -20,3 +20,4 @@ public class Conta {
 	}
 	
 }
+
