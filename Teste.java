@@ -1,4 +1,4 @@
-//Testa a classe Conta até que lance NewException.
+//Testa a classe Conta ate que lance NewException.
 public class Teste {
 	public static void main(String[] args) throws NewException{
 		Conta conta = new Conta(1500);
@@ -9,13 +9,13 @@ public class Teste {
 				conta.debita(755);
 			}
 			
-			//catch captura a exceção
+			//catch captura a excecao
 			catch(NewException e) {
 				System.out.println(e.getMessage());
 				break;
 			}
 			
-			 //finally executa mesmo que seja lançado uma exceção
+			//finally executa mesmo que seja lancado uma excecao
 			finally {
 				conta.printSaldo();
 			}
