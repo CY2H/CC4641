@@ -1,0 +1,57 @@
+//Classe de exceção "personalizada"
+//que herda da classe Exception
+public class NewException extends Exception{
+    NewException (String message) {
+    	super(message);
+	}
+}
+
+public class Conta {
+	private double saldo;
+	
+	public Conta(double saldo) {
+		this.saldo = saldo;
+	}
+	
+	//Avisa ao desenvolvedor que o método debita pode lançar uma 
+	//exceção  e que deve ser tratada ao utilizar a classe Conta
+	public void debita(double valor) throws NewException {
+		if (valor > this.saldo) {
+			throw new NewException("Saldo insuficiente.");
+		} else {
+			saldo -= valor;
+		}
+	}
+	
+	public void printSaldo() {
+		System.out.println("Saldo: R$"+this.saldo);
+	}
+	
+}
+
+//Testa a classe Conta até que lance NewException.
+public class Teste {
+	public static void main(String[] args) throws NewException{
+		Conta conta = new Conta(1500);
+		conta.printSaldo();
+		
+		while (true) {
+			try {
+				conta.debita(755);
+			}
+			
+			//catch captura a exceção
+			catch(NewException e) {
+				System.out.println(e.getMessage());
+				break;
+			}
+			
+			 //finally executa mesmo que seja lançado uma exceção
+			finally {
+				conta.printSaldo();
+			}
+		}
+	
+		System.out.println("Finalizando programa");
+	}
+}
